@@ -1,0 +1,294 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --primary-layout: #231b18;
+    --height-header: 5rem;
+    --sidebar-width: 15rem;
+    --primary-text: rgba(239, 239, 239, 0.693);
+    --text-hover: rgb(255, 255, 255);
+    --color-range: rgb(73, 73, 73);
+    --primary-font: 15px;
+    --padding-primary: 1.5rem;
+    --layout-header-bg: rgba(37,27,24,0.8);
+    --player-bg: #30201d;
+    --sidebar-popup-bg: #2f251e;
+    --primary-bg: #46312b;
+    --gradient-latest-section-artist: linear-gradient(286.07deg,rgba(37,27,24,0.95) 55.21%,rgba(37,27,24,0.6));
+    --alpha-layout-bg: rgba(87,64,59,0.8);
+    --background-active: rgba(57, 52, 52, 0.855);
+    --queue-player-popup-bg: #63423c;
+    --blur-queue-bg: rgba(87,64,59,0.9019607843137255);
+    --purple-primary: #b65f20;
+    --link-text-hover: #e96f16;
+    --chart-bg-img-alpha: rgba(87,64,59,0.9);
+    --bg-add-playlist: rgb(7 7 7 / 56%);;
+    --linear-gradient-bg: linear-gradient(180deg,#7b5e58,#654943);
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--primary-layout);
+    font-family: Inter,sans-serif;
+    color: var(--primary-text);
+    font-size: var(--primary-font);
+    overflow-x: hidden;
+}
+.zingmp-wrapper{
+    display: flex;
+}
+#sidebar-zingmp3 {
+    background-color: var(--sidebar-popup-bg);
+    width: var( --sidebar-width);
+    min-height: max-content;
+    position: fixed;
+
+}
+.zingmp3-logo {
+    width: 10rem;
+    height: var(--height-header);
+    padding: 0 var(--padding-primary);
+}
+.zingmp3-logo img {
+    width: 100%;
+    height: 100%;
+}
+.zingmp3-navbar_item {
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0.5rem var(--padding-primary);
+    position: relative;
+    justify-content: space-between;
+    transition: all linear;
+}
+.zingmp3-navbar_item i{
+   opacity: 0;
+}
+.zingmp3-navbar_item:hover {
+   color: var(--text-hover);
+}
+.zingmp3-navbar_item:hover i {
+   opacity: 1;
+}
+.navbar-title {
+    display: flex;
+    align-items: center;
+}
+.zmp3-logo_img{
+    margin-right: 0.8rem;
+}
+.active-navbar {
+    background-color: var(--background-active) !important;
+    color: var(--text-hover) !important;
+    position: relative;
+
+}
+.active-navbar::before {
+   content: "";
+   position: absolute;
+   left: 0;
+   height: 100%;
+   z-index: 2;
+   width: 3px;
+   background-color: var(--queue-player-popup-bg);
+}
+.range {
+    padding: 0 var(--padding-primary);
+    height: 1.5rem;
+    box-shadow: 0px 1px 7px var(--sidebar-popup-bg);
+    position: relative;
+}
+.range span {
+    top: 0;
+    position: absolute;
+    height: 1px;
+    border-radius: 1px;
+    width: calc(100% - var(--padding-primary));
+    background-color: var( --color-range);
+}
+.zmp3-advanced {
+    text-align: center;
+    padding: 0.5rem var(--padding-primary);
+    margin: 0.5rem 0;
+}
+.zmp3-content {
+    background: rgb(95,73,189);
+    padding: 0.6rem 0.4rem;
+    border-radius: 10px;
+
+    background: linear-gradient(90deg, rgba(95,73,189,1) 26%, rgba(173,50,173,1) 56%, rgba(113,50,204,0.8500350823923319) 94%);
+}
+.zmp3-content p {
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    margin-bottom: 15px;
+    margin-top: 0.5rem;
+}
+.zmp3-content button {
+    color: rgba(0, 0, 0, 1);
+    font-size: 12px;
+    background-color: #ffdb00;
+    cursor: pointer;
+    padding: 0.4rem 0.9rem;
+    line-height: 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    border: none;
+}
+.zmp3-content button:hover {
+    opacity: 0.8;
+}
+.zmp3-sub_title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all linear;
+    padding: 0.1rem var(--padding-primary) 0.5rem var(--padding-primary) ;
+}
+.zmp3-sub_title p {
+    font-size: 14px;
+    font-weight: 600;
+}
+.zmp3-sub_title i {
+    opacity: 0;
+    cursor: pointer;
+}
+.zmp3-libaray:hover .zmp3-sub_title i {
+    opacity: 1;
+}
+.text-lighter {
+    font-weight: 200 !important;
+    font-size: 13px !important;
+}
+.zmp3-create {
+    display: flex;
+    position: fixed;
+    align-items: center;
+    bottom: 0;
+    border-top: 1px solid var(--color-range);
+    padding: 0.8rem var(--padding-primary);
+    cursor: pointer;
+    font-size: 16px;
+    width: var(--sidebar-width);
+    background-color: var(--sidebar-popup-bg);
+}
+.zmp3-create i {
+   margin-right: 1.5rem;
+}
+.zmp3-addList {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    border-radius: 20px;
+    background-color: var(--primary-bg);
+}
+.zmp3-addList i {
+    position: absolute;
+    top: 3%;
+    right: 7%;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+.zmp3-addList input {
+    width: 100%;
+    padding: 0.7rem 0.8rem;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    line-height: 1rem;
+    color: white;
+    background-color: var( --player-bg);
+    margin-bottom: 0.5rem;
+}
+.zmp3-title {
+    font-size: 1.5rem;
+    color: var(--purple-primary);
+    margin: 1rem 0;
+}
+.zmp3-playlist_nav {
+    margin: 0.8rem 0;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.zmp3-playlist_nav h6 {
+    color: var(--text-hover);
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+}
+.zmp3-playlist_nav p {
+    font-size: 0.8rem;
+}
+.zmp3-list_btn {
+    margin-left: 1.5rem;
+    width: 2rem;
+    height: 1.2rem;
+    border-radius: 30px;
+    background-color: var(--player-bg);
+    position: relative;
+}
+.btn-switch {
+    width: 1rem;
+    border: 50%;
+    height: 1rem;
+    top: 10%;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: var( --link-text-hover);
+    position: absolute;
+    transition: all 0.2s linear ;
+}
+.transform-btn-toRight {
+    right:  8% !important;
+}
+.transform-btn-toLeft {
+    left:  8% !important;
+}
+.zmp3-addList button  {
+    padding: 0.4rem 0;
+    width: 100%;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 0.7rem;
+    background-color: var(--purple-primary);
+    color: white;   
+}
+.zmp3-adddlist_wrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var( --bg-add-playlist);
+}
+.hiden-active {
+    z-index: -1000 0!important;
+    opacity: 0 !important;
+}
+.show-active{
+    z-index: 1000 !important;
+    opacity: 1 !important;
+}
+.zmp3-addList button:hover  {
+   opacity: 0.8;
+}
+.scroll-nav {
+    
+}
